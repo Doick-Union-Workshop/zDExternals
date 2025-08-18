@@ -5,7 +5,7 @@ namespace GOTHIC_NAMESPACE
 		if (!t_npc || t_pointName.IsEmpty())
 			return;
 
-		static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::AI_TurnToWP");
+		static Utils::Logger* log = Utils::CreateLogger("zDExternals::AI_TurnToWP");
 
 		zSTRING pointName = t_pointName;
 		pointName.Upper();
@@ -35,7 +35,7 @@ namespace GOTHIC_NAMESPACE
 		if (!t_npc || t_pointName.IsEmpty())
 			return;
 
-		static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::AI_TurnToVob");
+		static Utils::Logger* log = Utils::CreateLogger("zDExternals::AI_TurnToVob");
 
 		zSTRING pointName = t_pointName;
 		zCVob* vob = ogame->GetGameWorld()->SearchVobByName(pointName.Upper());

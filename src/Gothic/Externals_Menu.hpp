@@ -4,7 +4,7 @@ namespace GOTHIC_NAMESPACE
     {
         if (t_name.IsEmpty()) return;
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Menu_SetItemText");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Menu_SetItemText");
 
         zSTRING name = t_name;
         name.Upper();
@@ -29,7 +29,7 @@ namespace GOTHIC_NAMESPACE
         if (t_name.IsEmpty())
             return zSTRING{};
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Menu_GetItemText");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Menu_GetItemText");
 
         zSTRING name = t_name;
         name.Upper();
@@ -60,7 +60,7 @@ namespace GOTHIC_NAMESPACE
         menuItemName = menuItemName.Upper();
         zCMenuItem* menuItem = zCMenuItem::GetByName(menuItemName);
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Menu_SetItemText_Old");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Menu_SetItemText_Old");
 
         if (!menuItem)
         {
@@ -86,7 +86,7 @@ namespace GOTHIC_NAMESPACE
         menuItemName = menuItemName.Upper();
         zCMenuItem* menuItem = zCMenuItem::GetByName(menuItemName);
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Menu_GetItemText_Old");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Menu_GetItemText_Old");
 
         if (!menuItem)
         {

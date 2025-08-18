@@ -29,7 +29,7 @@ namespace GOTHIC_NAMESPACE
         if (t_vobName.IsEmpty() || t_pointName.IsEmpty())
             return;
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Wld_InsertVob");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_InsertVob");
 
         zSTRING vobName = t_vobName;
         zSTRING pointName = t_pointName;
@@ -85,7 +85,7 @@ namespace GOTHIC_NAMESPACE
     {
         if (t_vobName.IsEmpty()) return 0;
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Wld_RemoveVob");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_RemoveVob");
 
         oCWorld* world = ogame->GetGameWorld();
         zSTRING vobName = t_vobName;
@@ -108,7 +108,7 @@ namespace GOTHIC_NAMESPACE
         if (t_vobName.IsEmpty() || t_pointName.IsEmpty())
             return;
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Vob_MoveTo");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_MoveTo");
 
         oCWorld* world = ogame->GetGameWorld();
         zSTRING vobName = t_vobName;
@@ -153,7 +153,7 @@ namespace GOTHIC_NAMESPACE
         if (t_vobName.IsEmpty() || !t_vobPosition)
             return;
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Vob_MoveTo");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_MoveTo");
 
         zSTRING vobName = t_vobName;
         vobName.Upper();
@@ -180,7 +180,7 @@ namespace GOTHIC_NAMESPACE
     {
         if (t_vobName.IsEmpty()) return;
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Vob_SetVisual");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_SetVisual");
 
         zSTRING vobName = t_vobName;
         vobName.Upper();
@@ -200,7 +200,7 @@ namespace GOTHIC_NAMESPACE
     {
         if (t_vobName.IsEmpty()) return;
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Vob_SetOnFloor");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_SetOnFloor");
 
         zSTRING vobName = t_vobName;
         vobName.Upper();
@@ -228,7 +228,7 @@ namespace GOTHIC_NAMESPACE
     {
         if (t_mobName.IsEmpty()) return;
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Mob_SetFocusName");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Mob_SetFocusName");
 
         zSTRING mobName = t_mobName;
         mobName.Upper();
@@ -250,7 +250,7 @@ namespace GOTHIC_NAMESPACE
         if (t_mobName.IsEmpty())
             return zSTRING{};
 
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Mob_GetFocusName");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Mob_GetFocusName");
 
         zSTRING mobName = t_mobName;
         mobName.Upper();

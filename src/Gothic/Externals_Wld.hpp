@@ -31,7 +31,7 @@ namespace GOTHIC_NAMESPACE
 
     static int Wld_SetRainTime(const int t_startHr, const int t_startMin, const int t_endHr, const int t_endMin)
     {
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Wld_SetRainTime");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_SetRainTime");
         zCSkyControler_Outdoor* skyCtrl = dynamic_cast<zCSkyControler_Outdoor*>(ogame->GetGameWorld()->GetActiveSkyControler());
 
         if (!skyCtrl)
@@ -97,7 +97,7 @@ namespace GOTHIC_NAMESPACE
 
     static void Wld_OverrideWorldFogColors(const int t_index, const zSTRING& t_color)
     {
-        static Utils::Logger* log = Utils::CreateLogger("DSP::Externals::Wld_OverrideWorldFogColors");
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_OverrideWorldFogColors");
         zCSkyControler_Outdoor* skyCtrl = dynamic_cast<zCSkyControler_Outdoor*>(ogame->GetGameWorld()->GetActiveSkyControler());
 
         if (!skyCtrl)
