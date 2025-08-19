@@ -1,6 +1,11 @@
 namespace GOTHIC_NAMESPACE
 {
-    // by Boguœ
+    /*
+     *
+     * Created by Boguœ (bogu9821), 2025
+     * Original source: https://gist.github.com/bogu9821/08b938ef9a5a38fab467d5eac3aa3b0d
+     *
+     */
     template<typename T>
     int _cdecl GetArrayValue()
     {
@@ -16,7 +21,12 @@ namespace GOTHIC_NAMESPACE
         return {};
     }
 
-    // by Boguœ
+    /*
+     *
+     * Created by Boguœ (bogu9821), 2025
+     * Original source: https://gist.github.com/bogu9821/08b938ef9a5a38fab467d5eac3aa3b0d
+     *
+     */
     template<typename T>
     int _cdecl SetArrayValue()
     {
@@ -35,6 +45,12 @@ namespace GOTHIC_NAMESPACE
         return {};
     }
 
+    /*
+     *
+     * Created by Boguœ (bogu9821), 2025
+     * Original source: https://github.com/bogu9821/BetterDaedalusExternals/blob/main/README.md
+     *
+     */
     static int Ext_RGBA(const int r, const int g, const int b, const int a)
     {
         const zCOLOR color
