@@ -164,9 +164,11 @@ namespace GOTHIC_NAMESPACE
 		BetterDaedalusExternal(Wld_OverrideWorldFogColors),
 		BetterDaedalusExternal(Wld_GetPos),
 		BetterDaedalusExternal(Vob_MoveTo),
+		BetterDaedalusExternal(Vob_MoveToPos),
+		BetterDaedalusExternal(Vob_SetCollisionDetection),
 		BetterDaedalusExternal(Vob_Rotate),
 		BetterDaedalusExternal(Vob_SetVisual),
-		BetterDaedalusExternal(Vob_SetOnFloor),
+		BetterDaedalusExternal(Vob_SetToFloor),
 		BetterDaedalusExternal(Mob_SetFocusName),
 		BetterDaedalusExternal(Mob_GetFocusName),
 		BetterDaedalusExternalWithName(RGBA, Ext_RGBA)

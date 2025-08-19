@@ -1,5 +1,111 @@
 namespace GOTHIC_NAMESPACE
 {
+    void SetPositionWorld(zCVob* t_vob, const zVEC3& t_position)
+    {
+        if (!t_vob || t_position == zVEC3{})
+            return;
+
+        const bool collDetectionStatic = t_vob->collDetectionStatic;
+        const bool collDetectionDynamic = t_vob->collDetectionDynamic;
+        t_vob->collDetectionStatic = 0;
+        t_vob->collDetectionDynamic = 0;
+        t_vob->SetPositionWorld(t_position);
+        t_vob->collDetectionStatic = collDetectionStatic;
+        t_vob->collDetectionDynamic = collDetectionDynamic;
+    }
+
+    template<typename T>
+    static void Wld_InsertVob(const zSTRING& t_vobName, const zSTRING& t_pointName)
+    {
+        if (t_vobName.IsEmpty() || t_pointName.IsEmpty())
+            return;
+
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_InsertVob");
+
+        zSTRING vobName = t_vobName;
+        vobName.Upper();
+
+        zSTRING pointName = t_pointName;
+        pointName.Upper();
+
+        T* vob = new T{};
+        oCWorld* world = ogame->GetGameWorld();
+        zCWaypoint* wp = world->wayNet->GetWaypoint(pointName);
+        zVEC3 pos;
+
+        if (wp) {
+            pos = wp->GetPositionWorld();
+        }
+        else
+        {
+            zCVob* pointVob = world->SearchVobByName(pointName);
+
+            if (!pointVob)
+            {
+                log->Error("No Vob found with specified Vobname: {0}", pointName.ToChar());
+                vob->Release();
+                return;
+            }
+
+            pos = pointVob->GetPositionWorld();
+        }
+
+        vob->SetVobName(vobName);
+        world->AddVob(vob);
+        SetPositionWorld(vob, pos);
+        vob->Release();
+    }
+
+    template<typename T>
+    static void Wld_InsertVobPos(const zSTRING& t_vobName, C_POSITION* t_vobPosition)
+    {
+        if (t_vobName.IsEmpty() || !t_vobPosition)
+            return;
+
+        zSTRING vobName = t_vobName;
+        T* vob = new T{};
+        zVEC3 pos = zVEC3(
+            (float)t_vobPosition->X,
+            (float)t_vobPosition->Y,
+            (float)t_vobPosition->Z
+        );
+        vob->SetVobName(vobName.Upper());
+        ogame->GetGameWorld()->AddVob(vob);
+        SetPositionWorld(vob, pos);
+        vob->Release();
+    }
+
+    static int Wld_RemoveVob(const zSTRING& t_vobName)
+    {
+        if (t_vobName.IsEmpty()) return 0;
+
+        static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_RemoveVob");
+
+        oCWorld* world = ogame->GetGameWorld();
+        zSTRING vobName = t_vobName;
+        vobName.Upper();
+        zCVob* vob = world->SearchVobByName(vobName);
+
+        if (!vob)
+        {
+            log->Error("No Vob found with specified Vobname: {0}", vobName.ToChar());
+            return 0;
+        }
+
+        world->RemoveVob(vob);
+        vob->Release();
+        return 1;
+    }
+
+    static C_POSITION* Wld_GetPos(const int t_posX, const int t_posY, const int t_posZ)
+    {
+        C_POSITION* vobPosition = new C_POSITION;
+        vobPosition->X = t_posX;
+        vobPosition->Y = t_posY;
+        vobPosition->Z = t_posZ;
+        return vobPosition;
+    }
+
     static zSTRING Wld_GetPlayerPortalRoom()
     {
         if (zSTRING* name = ogame->GetPortalRoomManager()->curPlayerPortal)
@@ -32,11 +138,12 @@ namespace GOTHIC_NAMESPACE
     static int Wld_SetRainTime(const int t_startHr, const int t_startMin, const int t_endHr, const int t_endMin)
     {
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_SetRainTime");
+
         zCSkyControler_Outdoor* skyCtrl = dynamic_cast<zCSkyControler_Outdoor*>(ogame->GetGameWorld()->GetActiveSkyControler());
 
         if (!skyCtrl)
         {
-            log->Warning("zCSkyControler_Outdoor not found");
+            log->Error("zCSkyControler_Outdoor not found");
             return 0;
         }
 
@@ -47,7 +154,7 @@ namespace GOTHIC_NAMESPACE
 
             if (startHr > endHr)
             {
-                log->Info("Rain at 12 noon is not possible!");
+                log->Error("Rain at 12 noon is not possible!");
                 return 0;
             }
 
@@ -98,11 +205,12 @@ namespace GOTHIC_NAMESPACE
     static void Wld_OverrideWorldFogColors(const int t_index, const zSTRING& t_color)
     {
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_OverrideWorldFogColors");
+
         zCSkyControler_Outdoor* skyCtrl = dynamic_cast<zCSkyControler_Outdoor*>(ogame->GetGameWorld()->GetActiveSkyControler());
 
         if (!skyCtrl)
         {
-            log->Warning("zCSkyControler_Outdoor not found");
+            log->Error("zCSkyControler_Outdoor not found");
             return;
         }
 

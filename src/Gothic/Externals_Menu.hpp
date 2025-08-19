@@ -12,7 +12,7 @@ namespace GOTHIC_NAMESPACE
 
         if (!menuItem)
         {
-            log->Warning("Invalid Menu Item: {0}", name.ToChar());
+            log->Error("Invalid Menu Item: {0}", name.ToChar());
             return;
         }
 
@@ -37,7 +37,7 @@ namespace GOTHIC_NAMESPACE
 
         if (!menuItem)
         {
-            log->Warning("Invalid Menu Item: {0}", name.ToChar());
+            log->Error("Invalid Menu Item: {0}", name.ToChar());
             return zSTRING{};
         }
 
@@ -64,7 +64,7 @@ namespace GOTHIC_NAMESPACE
 
         if (!menuItem)
         {
-            log->Warning("Invalid Menu Item: {0}", menuItemName.ToChar());
+            log->Error("Invalid Menu Item: {0}", menuItemName.ToChar());
             return 0;
         }
 
@@ -90,7 +90,7 @@ namespace GOTHIC_NAMESPACE
 
         if (!menuItem)
         {
-            log->Warning("Invalid Menu Item: {0}", menuItemName.ToChar());
+            log->Error("Invalid Menu Item: {0}", menuItemName.ToChar());
             par->SetReturn((zSTRING&)result);
             return 0;
         }

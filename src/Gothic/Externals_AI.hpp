@@ -23,7 +23,7 @@ namespace GOTHIC_NAMESPACE
 
 		if (!vob)
 		{
-			log->Warning("No Vob found with specified Vobname: {0}", pointName.ToChar());
+			log->Error("No Vob found with specified Vobname: {0}", pointName.ToChar());
 			return;
 		}
 
@@ -42,7 +42,7 @@ namespace GOTHIC_NAMESPACE
 
 		if (!vob)
 		{
-			log->Warning("No Vob found with specified Vobname: {0}", pointName.ToChar());
+			log->Error("No Vob found with specified Vobname: {0}", pointName.ToChar());
 			return;
 		}
 
