@@ -183,7 +183,7 @@
             return;
         }
 
-        vob->collDetectionStatic = dynamicCollDet;
-        vob->collDetectionDynamic = staticCollDet;
+        vob->collDetectionDynamic = dynamicCollDet;
+        vob->collDetectionStatic = staticCollDet;
     }
 }
