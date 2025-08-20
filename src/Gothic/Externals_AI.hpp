@@ -7,8 +7,7 @@ namespace GOTHIC_NAMESPACE
 
 		static Utils::Logger* log = Utils::CreateLogger("zDExternals::AI_TurnToWP");
 
-		zSTRING pointName = t_pointName;
-		pointName.Upper();
+		zSTRING pointName = zSTRING(t_pointName).Upper();
 		zCWorld* world = ogame->GetGameWorld();
 		zCWaypoint* wp = world->wayNet->GetWaypoint(pointName);
 
@@ -23,7 +22,7 @@ namespace GOTHIC_NAMESPACE
 
 		if (!vob)
 		{
-			log->Error("No Vob found with specified Vobname: {0}", pointName.ToChar());
+			log->Error("No Vob found with specified name: {0}", pointName.ToChar());
 			return;
 		}
 
@@ -37,12 +36,12 @@ namespace GOTHIC_NAMESPACE
 
 		static Utils::Logger* log = Utils::CreateLogger("zDExternals::AI_TurnToVob");
 
-		zSTRING pointName = t_pointName;
-		zCVob* vob = ogame->GetGameWorld()->SearchVobByName(pointName.Upper());
+		zSTRING pointName = zSTRING(t_pointName).Upper();
+		zCVob* vob = ogame->GetGameWorld()->SearchVobByName(pointName);
 
 		if (!vob)
 		{
-			log->Error("No Vob found with specified Vobname: {0}", pointName.ToChar());
+			log->Error("No Vob found with specified name: {0}", pointName.ToChar());
 			return;
 		}
 

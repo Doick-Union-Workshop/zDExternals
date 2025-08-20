@@ -24,9 +24,9 @@ namespace GOTHIC_NAMESPACE
     
     static int Hlp_StrCmp(const zSTRING& t_str1, const zSTRING& t_str2)
     {
-        zSTRING str1 = t_str1;
-        zSTRING str2 = t_str2;
-        return static_cast<int>(str1.Upper() == str2.Upper());
+        zSTRING str1 = zSTRING(t_str1).Upper();
+        zSTRING str2 = zSTRING(t_str2).Upper();
+        return static_cast<int>(str1 == str2);
     }
 
     static oCNpc* Hlp_GetNpcPlunderedByPlayer()

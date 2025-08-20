@@ -22,12 +22,8 @@ namespace GOTHIC_NAMESPACE
 
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_InsertVob");
 
-        zSTRING vobName = t_vobName;
-        vobName.Upper();
-
-        zSTRING pointName = t_pointName;
-        pointName.Upper();
-
+        zSTRING vobName = zSTRING(t_vobName).Upper();
+        zSTRING pointName = zSTRING(t_pointName).Upper();
         T* vob = new T{};
         oCWorld* world = ogame->GetGameWorld();
         zCWaypoint* wp = world->wayNet->GetWaypoint(pointName);
@@ -42,7 +38,7 @@ namespace GOTHIC_NAMESPACE
 
             if (!pointVob)
             {
-                log->Error("No Vob found with specified Vobname: {0}", pointName.ToChar());
+                log->Error("No Vob found with specified name: {0}", pointName.ToChar());
                 vob->Release();
                 return;
             }
@@ -62,14 +58,14 @@ namespace GOTHIC_NAMESPACE
         if (t_vobName.IsEmpty() || !t_vobPosition)
             return;
 
-        zSTRING vobName = t_vobName;
+        zSTRING vobName = zSTRING(t_vobName).Upper();
         T* vob = new T{};
         zVEC3 pos = zVEC3(
             (float)t_vobPosition->X,
             (float)t_vobPosition->Y,
             (float)t_vobPosition->Z
         );
-        vob->SetVobName(vobName.Upper());
+        vob->SetVobName(vobName);
         ogame->GetGameWorld()->AddVob(vob);
         SetPositionWorld(vob, pos);
         vob->Release();
@@ -82,13 +78,12 @@ namespace GOTHIC_NAMESPACE
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Wld_RemoveVob");
 
         oCWorld* world = ogame->GetGameWorld();
-        zSTRING vobName = t_vobName;
-        vobName.Upper();
+        zSTRING vobName = zSTRING(t_vobName).Upper();
         zCVob* vob = world->SearchVobByName(vobName);
 
         if (!vob)
         {
-            log->Error("No Vob found with specified Vobname: {0}", vobName.ToChar());
+            log->Error("No Vob found with specified name: {0}", vobName.ToChar());
             return 0;
         }
 

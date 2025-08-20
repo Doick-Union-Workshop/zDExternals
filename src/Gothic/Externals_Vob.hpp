@@ -29,7 +29,7 @@
         if (!zVob_GetFloorPosition(t_vob, t_pos))
         {
             zSTRING vobName = t_vob->GetObjectName();
-            log->Error("Cannot set to floor Vob with specified Vobname: {0}", vobName.ToChar());
+            log->Error("Cannot set to floor Vob with specified name: {0}", vobName.Upper().ToChar());
             return;
         }
 
@@ -43,13 +43,12 @@
 
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_Rotate");
 
-        zSTRING vobName = t_vobName;
-        vobName.Upper();
+        zSTRING vobName = zSTRING(t_vobName).Upper();
         zCVob* vob = ogame->GetGameWorld()->SearchVobByName(vobName);
 
         if (!vob)
         {
-            log->Error("No Vob found with specified Vobname: {0}", vobName.ToChar());
+            log->Error("No Vob found with specified name: {0}", vobName.ToChar());
             return;
         }
 
@@ -72,13 +71,12 @@
 
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_SetVisual");
 
-        zSTRING vobName = t_vobName;
-        vobName.Upper();
+        zSTRING vobName = zSTRING(t_vobName).Upper();
         zCVob* vob = ogame->GetGameWorld()->SearchVobByName(vobName);
 
         if (!vob)
         {
-            log->Error("No Vob found with specified Vobname: {0}", vobName.ToChar());
+            log->Error("No Vob found with specified name: {0}", vobName.ToChar());
             return;
         }
 
@@ -93,13 +91,12 @@
 
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_SetToFloor");
 
-        zSTRING vobName = t_vobName;
-        vobName.Upper();
+        zSTRING vobName = zSTRING(t_vobName).Upper();
         zCVob* vob = ogame->GetGameWorld()->SearchVobByName(vobName);
 
         if (!vob)
         {
-            log->Error("No Vob found with specified Vobname: {0}", vobName.ToChar());
+            log->Error("No Vob found with specified name: {0}", vobName.ToChar());
             return;
         }
 
@@ -114,21 +111,17 @@
 
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_MoveTo");
 
-        zSTRING vobName = t_vobName;
-        vobName.Upper();
-
+        zSTRING vobName = zSTRING(t_vobName).Upper();
         oCWorld* world = ogame->GetGameWorld();
         zCVob* vob = world->SearchVobByName(vobName);
 
         if (!vob)
         {
-            log->Warning("No Vob found with specified Vobname: {0}", vobName.ToChar());
+            log->Warning("No Vob found with specified name: {0}", vobName.ToChar());
             return;
         }
 
-        zSTRING pointName = t_pointName;
-        pointName.Upper();
-
+        zSTRING pointName = zSTRING(t_pointName).Upper();
         zCWaypoint* wp = world->wayNet->GetWaypoint(pointName);
         zVEC3 pos;
 
@@ -151,14 +144,12 @@
 
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_MoveToPos");
 
-        zSTRING vobName = t_vobName;
-        vobName.Upper();
-
+        zSTRING vobName = zSTRING(t_vobName).Upper();
         zCVob* vob = ogame->GetGameWorld()->SearchVobByName(vobName);
 
         if (!vob)
         {
-            log->Warning("No Vob found with specified Vobname: {0}", vobName.ToChar());
+            log->Warning("No Vob found with specified name: {0}", vobName.ToChar());
             return;
         }
 
@@ -172,14 +163,12 @@
 
         static Utils::Logger* log = Utils::CreateLogger("zDExternals::Vob_SetCollisionDetection");
 
-        zSTRING vobName = t_vobName;
-        vobName.Upper();
-
+        zSTRING vobName = zSTRING(t_vobName).Upper();
         zCVob* vob = ogame->GetGameWorld()->SearchVobByName(vobName);
 
         if (!vob)
         {
-            log->Warning("No Vob found with specified Vobname: {0}", vobName.ToChar());
+            log->Warning("No Vob found with specified name: {0}", vobName.ToChar());
             return;
         }
 

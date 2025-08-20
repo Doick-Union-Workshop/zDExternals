@@ -82,8 +82,7 @@ namespace GOTHIC_NAMESPACE
 		if (!t_npc || t_overlay.IsEmpty())
 			return 0;
 
-		zSTRING overlay = t_overlay;
-		overlay.Upper();
+		zSTRING overlay = zSTRING(t_overlay).Upper();
 		return t_npc->activeOverlays.IsInList(overlay);
 	}
 
@@ -92,12 +91,12 @@ namespace GOTHIC_NAMESPACE
 		if (!t_npc || t_overlay.IsEmpty())
 			return 0;
 
-		zSTRING overlay = t_overlay;
+		zSTRING overlay = zSTRING(t_overlay).Upper();
 		auto list = t_npc->timedOverlays.GetNextInList();
 
 		while (list)
 		{
-			if (list->GetData()->mdsOverlayName.Upper() == overlay.Upper())
+			if (list->GetData()->mdsOverlayName.Upper() == overlay)
 				return 1;
 
 			list = list->GetNextInList();
