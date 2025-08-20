@@ -190,9 +190,9 @@ namespace GOTHIC_NAMESPACE
 
 		// TODO: Change definitons to BetterDaedalusExternal when multi parser definitons are supported
 		parserMenu->DefineExternal("Menu_SetItemText", Menu_SetItemText_Old,
-			zPAR_TYPE_VOID, zPAR_TYPE_STRING, zPAR_TYPE_STRING, 0);
+			zPAR_TYPE_VOID, zPAR_TYPE_STRING, zPAR_TYPE_STRING, zPAR_TYPE_INT, zPAR_TYPE_INT, 0);
 		parserMenu->DefineExternal("Menu_GetItemText", Menu_GetItemText_Old,
-			zPAR_TYPE_STRING, zPAR_TYPE_STRING, 0);
+			zPAR_TYPE_STRING, zPAR_TYPE_STRING, zPAR_TYPE_INT, 0);
 		parserMenu->DefineExternal("Hlp_StrCmp", Hlp_StrCmp_Old,
 			zPAR_TYPE_INT, zPAR_TYPE_STRING, zPAR_TYPE_STRING, 0);
 	}
