@@ -1,6 +1,9 @@
-// Add your plugin files here
+// Utils
 #include "Utils/zDUtils/Commons.h"
 #include "Utils/zDUtils/Logger.h"
+#include "Utils/BetterDaedalusExternals.h"
+
+// Plugin
 #include "Gothic/Structs.hpp"
 #include "Gothic/Externals_AI.hpp"
 #include "Gothic/Externals_Cast.hpp"
@@ -13,5 +16,4 @@
 #include "Gothic/Externals_Wld.hpp"
 #include "Gothic/Externals_Vob.hpp"
 #include "Gothic/Externals_Mob.hpp"
-#include "BetterDaedalusExternals.h"
 #include "Plugin.hpp"
