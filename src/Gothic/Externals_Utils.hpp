@@ -2,7 +2,7 @@ namespace GOTHIC_NAMESPACE
 {
     /*
      *
-     * Created by Boguú (bogu9821), 2025
+     * Created by Bogu≈õ (bogu9821), 2025
      * Original source: https://gist.github.com/bogu9821/08b938ef9a5a38fab467d5eac3aa3b0d
      *
      */
@@ -23,7 +23,7 @@ namespace GOTHIC_NAMESPACE
 
     /*
      *
-     * Created by Boguú (bogu9821), 2025
+     * Created by Bogu≈õ (bogu9821), 2025
      * Original source: https://gist.github.com/bogu9821/08b938ef9a5a38fab467d5eac3aa3b0d
      *
      */
@@ -47,7 +47,7 @@ namespace GOTHIC_NAMESPACE
 
     /*
      *
-     * Created by Boguú (bogu9821), 2025
+     * Created by Bogu≈õ (bogu9821), 2025
      * Original source: https://github.com/bogu9821/BetterDaedalusExternals/blob/main/README.md
      *
      */
